@@ -1,7 +1,9 @@
 package ro.bogdanmunteanu.testapp.ws;
 
 /**
- * Created by c026muntn on 3/6/2018.
+ * Webservices implemementation
+ * All baseUrls must end with slash and contain protocol and port if necessary.
+ * All endpoints shouldn't end in slash
  */
 
 public interface ServiceManager {

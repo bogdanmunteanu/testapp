@@ -3,6 +3,9 @@ package ro.bogdanmunteanu.testapp.dagger;
 import android.app.Application;
 import android.content.res.Resources;
 
+/**
+ * Base application class with dagger init
+ */
 public class App extends Application{
 
     private static App instance;

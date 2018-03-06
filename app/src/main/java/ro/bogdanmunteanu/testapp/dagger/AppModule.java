@@ -8,6 +8,9 @@ import dagger.Module;
 import dagger.Provides;
 import ro.bogdanmunteanu.testapp.ws.ApiManager;
 
+/**
+ * Dagger module implementation
+ */
 
 @Module
 public class AppModule {
