@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import ro.bogdanmunteanu.testapp.model.Location;
+import ro.bogdanmunteanu.testapp.model.Walk;
 
 /**
  * Webservices implemementation
@@ -18,5 +19,6 @@ public interface ServiceManager {
     @GET("/locations")
     Call<ArrayList<Location>> getLocations();
 
-    //locations and API2: /walks
+    @GET("/walks")
+    Call<ArrayList<Walk>> getWalks();
 }

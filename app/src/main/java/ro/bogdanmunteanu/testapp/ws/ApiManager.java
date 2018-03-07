@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import ro.bogdanmunteanu.testapp.model.Location;
+import ro.bogdanmunteanu.testapp.model.Walk;
 
 /**
  * Public interface for calling web service
@@ -25,5 +26,9 @@ public class ApiManager {
     }
     public void getLocations(final Callback<ArrayList<Location>> callback){
         serviceManager.getLocations().enqueue(new ApiRequestCallback<>(callback));
+    }
+
+    public void getWalks(final Callback<ArrayList<Walk>> callback) {
+        serviceManager.getWalks().enqueue(new ApiRequestCallback<>(callback));
     }
 }
