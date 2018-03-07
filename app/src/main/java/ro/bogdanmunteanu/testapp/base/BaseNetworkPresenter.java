@@ -60,7 +60,7 @@ public abstract class BaseNetworkPresenter {
      *
      * @param <T> the type of object the presenter should handle
      */
-    public interface BaseVIew<T>
+    public interface BaseView<T>
     {
         /**
          * callback for the view to handle the data loaded by the presenter

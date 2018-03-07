@@ -2,15 +2,15 @@ package ro.bogdanmunteanu.testapp.fragments.one;
 
 import ro.bogdanmunteanu.testapp.base.BaseNetworkPresenter;
 
-public interface FragmentOneContract extends BaseNetworkPresenter.BasePresenter<String> {
+public interface FragmentOneContract {
     //link to presenter
-    interface Presenter
+    interface Presenter extends BaseNetworkPresenter.BasePresenter<FragmentOneContract.View>
     {
 
     }
 
     //link to view
-    interface View extends BaseNetworkPresenter.BaseVIew<String>
+    interface View extends BaseNetworkPresenter.BaseView<String>
     {
 
 
