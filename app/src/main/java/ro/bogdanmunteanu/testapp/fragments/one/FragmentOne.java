@@ -2,15 +2,15 @@ package ro.bogdanmunteanu.testapp.fragments.one;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import ro.bogdanmunteanu.testapp.R;
-import ro.bogdanmunteanu.testapp.base.BaseFragment;
 
-public class FragmentOne extends BaseFragment implements FragmentOneContract.View {
+public class FragmentOne extends Fragment implements FragmentOneContract.View {
 
     @Nullable
     @Override
