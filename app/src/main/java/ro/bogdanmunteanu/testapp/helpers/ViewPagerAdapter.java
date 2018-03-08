@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
+import ro.bogdanmunteanu.testapp.fragments.one.FragmentOne;
+import ro.bogdanmunteanu.testapp.fragments.two.FragmentTwo;
+
 /**
  * Created by Bogdan on 3/7/2018.
  */
@@ -21,7 +24,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return fragmentList.get(position);
+        switch (position){
+            case 0: return FragmentOne.newInstance();
+            case 1: return FragmentTwo.newInstance();
+            default: return FragmentOne.newInstance();
+        }
     }
 
     @Override

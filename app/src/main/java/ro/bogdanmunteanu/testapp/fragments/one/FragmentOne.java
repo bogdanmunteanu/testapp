@@ -45,4 +45,13 @@ public class FragmentOne extends Fragment implements FragmentOneContract.View {
     public void onLoadError(String errorMessage) {
 
     }
+
+    public static FragmentOne newInstance()
+    {
+        FragmentOne f = new FragmentOne();
+        Bundle b = new Bundle();
+        //set additional stuff here if needed
+        f.setArguments(b);
+        return f;
+    }
 }

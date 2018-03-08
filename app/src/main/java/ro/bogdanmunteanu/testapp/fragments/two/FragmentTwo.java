@@ -35,4 +35,13 @@ public class FragmentTwo extends Fragment implements FragmentTwoContract.View {
     public void onLoadError(String errorMessage) {
 
     }
+
+    public static FragmentTwo newInstance()
+    {
+        FragmentTwo f = new FragmentTwo();
+        Bundle b = new Bundle();
+        //set additional stuff here if needed
+        f.setArguments(b);
+        return f;
+    }
 }
