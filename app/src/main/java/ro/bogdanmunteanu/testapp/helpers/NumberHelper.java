@@ -1,6 +1,9 @@
 package ro.bogdanmunteanu.testapp.helpers;
 
+import android.util.Log;
+
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 
@@ -20,7 +23,7 @@ public class NumberHelper {
 
 
     //checks whether an int is prime or not.
-    boolean isPrime(int n) {
+    public static boolean isPrime(int n) {
         //check if n is a multiple of 2
         if (n%2==0) return false;
         //if not, then just check the odds
@@ -29,5 +32,16 @@ public class NumberHelper {
                 return false;
         }
         return true;
+    }
+
+    public static String  getRandomPictureUrl()
+    {
+        String url = "http://picsum.photos/100/100/?image=";
+        Random randomGenerator = new Random();
+        int randomNumber = randomGenerator.nextInt(1000);
+        StringBuilder builder = new StringBuilder();
+        builder.append(url);
+        builder.append(randomNumber);
+        return builder.toString();
     }
 }

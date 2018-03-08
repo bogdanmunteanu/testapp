@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.ButterKnife;
 import ro.bogdanmunteanu.testapp.R;
+import ro.bogdanmunteanu.testapp.helpers.FragmentChangeEvent;
 
 /**
  * Created by Bogdan on 3/7/2018.
@@ -43,5 +46,10 @@ public class FragmentTwo extends Fragment implements FragmentTwoContract.View {
         //set additional stuff here if needed
         f.setArguments(b);
         return f;
+    }
+
+    public void goToBaseFragment()
+    {
+        EventBus.getDefault().post(new FragmentChangeEvent(0));
     }
 }
