@@ -6,7 +6,11 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import ro.bogdanmunteanu.testapp.ws.ApiManager;
+import ro.bogdanmunteanu.testapp.ws.ServiceManager;
 
 /**
  * Dagger module implementation
@@ -36,5 +40,13 @@ public class AppModule {
         return new ApiManager();
     }
 
-    //other declarations here
+    @Provides
+    @Singleton
+    public Retrofit provideRetrofit() {
+        return new Retrofit.Builder().baseUrl(ServiceManager.baseUrl)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+    }
 }

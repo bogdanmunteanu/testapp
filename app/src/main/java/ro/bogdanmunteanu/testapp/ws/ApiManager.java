@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import ro.bogdanmunteanu.testapp.model.Location;
 import ro.bogdanmunteanu.testapp.model.Walk;
+import rx.Observable;
 
 /**
  * Public interface for calling web service
@@ -30,5 +31,13 @@ public class ApiManager {
 
     public void getWalks(final Callback<ArrayList<Walk>> callback) {
         serviceManager.getWalks().enqueue(new ApiRequestCallback<>(callback));
+    }
+
+    public Observable<ArrayList<Location>> getLocationObservable(){
+        return serviceManager.getLocationsObservable();
+    }
+
+    public Observable<ArrayList<Walk>> getWalksObservable(){
+        return serviceManager.getWalksObservable();
     }
 }

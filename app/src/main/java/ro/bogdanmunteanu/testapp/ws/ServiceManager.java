@@ -1,6 +1,7 @@
 package ro.bogdanmunteanu.testapp.ws;
 
 import java.util.ArrayList;
+import rx.Observable;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -21,4 +22,10 @@ public interface ServiceManager {
 
     @GET("/walks")
     Call<ArrayList<Walk>> getWalks();
+
+    @GET("/locations")
+    Observable<ArrayList<Location>> getLocationsObservable();
+
+    @GET("/walks")
+    Observable<ArrayList<Walk>> getWalksObservable();
 }
