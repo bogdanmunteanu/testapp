@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Helper class to generate fibonacci sequence and check if a number is prime
+ */
 public class NumberHelper {
 
     //using minSdk 24 so can generate a Fibonacci list in a clean way :)

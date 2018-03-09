@@ -4,7 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 /**
- * Created by Bogdan on 3/7/2018.
+ * Custom transformer that handles animation between fragments
  */
 
 public class DrawbackTransformer implements ViewPager.PageTransformer {

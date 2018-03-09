@@ -8,6 +8,9 @@ import java.util.List;
 
 import ro.bogdanmunteanu.testapp.helpers.NumberHelper;
 
+/**
+ * Unit test
+ */
 public class FibonacciUnitTest {
 
     @Test

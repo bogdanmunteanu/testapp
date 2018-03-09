@@ -14,7 +14,9 @@ import ro.bogdanmunteanu.testapp.model.Places;
 import ro.bogdanmunteanu.testapp.model.Walk;
 import ro.bogdanmunteanu.testapp.ws.ApiManager;
 
-
+/**
+ * Second fragment presenter
+ */
 public class FragmentTwoPresenter extends BaseNetworkPresenter implements FragmentTwoContract.Presenter {
 
     private FragmentTwoContract.View view;

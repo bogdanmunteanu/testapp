@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TestApp</string>
+    <string name="no_internet_meesage">You aren\'t connected to the internet.</string>
+    <string name="go_to_settings">Go to settings</string>
+    <string name="cancel">Go to settings</string>
 </resources>

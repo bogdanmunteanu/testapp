@@ -7,7 +7,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Bogdan on 3/6/2018.
+ * Custom callback that handles api calls scenarios
  */
 
 public class ApiRequestCallback<T> implements Callback<T> {

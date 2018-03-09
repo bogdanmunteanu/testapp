@@ -25,7 +25,9 @@ import ro.bogdanmunteanu.testapp.helpers.FragmentChangeEvent;
 import ro.bogdanmunteanu.testapp.helpers.NumberHelper;
 import ro.bogdanmunteanu.testapp.model.Element;
 
-
+/**
+ * Adapter that holds the data in the first fragment
+ */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.AdapterHolder>{
 
     private Context context;
@@ -63,7 +65,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Adapte
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new FragmentChangeEvent(1));
+                if(holder.checkBox.isChecked()) {
+                    EventBus.getDefault().post(new FragmentChangeEvent(1));
+                }else
+                {
+                    holder.image.setVisibility(View.VISIBLE);
+                    holder.components.setVisibility(View.GONE);
+                    Picasso.with(context)
+                            .load(R.mipmap.sad_face)
+                            .into(holder.image);
+                }
             }
         });
     }

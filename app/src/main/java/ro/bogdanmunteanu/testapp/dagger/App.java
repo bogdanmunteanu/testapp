@@ -1,12 +1,12 @@
 package ro.bogdanmunteanu.testapp.dagger;
 
-import android.app.Application;
 import android.content.res.Resources;
+import android.support.multidex.MultiDexApplication;
 
 /**
  * Base application class with dagger init
  */
-public class App extends Application{
+public class App extends MultiDexApplication {
 
     private static App instance;
 

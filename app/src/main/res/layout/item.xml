@@ -45,11 +45,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
+                style="?android:attr/borderlessButtonStyle"
                 android:text="GO" />
         </LinearLayout>
 
         <ImageView
-            android:paddingStart="30dp"
+            android:paddingLeft="50dp"
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp" />
