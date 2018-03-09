@@ -6,7 +6,7 @@ public class LocationLatLng {
     @SerializedName("lat")
     public String lat;
 
-    @SerializedName("long")
+    @SerializedName("lng")
     public String lng;
 
     public LocationLatLng(String lat, String lng) {

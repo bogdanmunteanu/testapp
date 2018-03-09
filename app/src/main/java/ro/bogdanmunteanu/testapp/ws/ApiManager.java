@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import ro.bogdanmunteanu.testapp.dagger.App;
 import ro.bogdanmunteanu.testapp.model.Location;
 import ro.bogdanmunteanu.testapp.model.Walk;
 import rx.Observable;
@@ -15,6 +16,10 @@ public class ApiManager {
 
     @Inject
     ServiceManager serviceManager;
+
+    public ApiManager() {
+        App.getInstance().getAppComponent().inject(this);
+    }
 
     /**
      * Callback for passing the response from Retrofit call

@@ -5,6 +5,8 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import ro.bogdanmunteanu.testapp.base.BaseNetworkPresenter;
+import ro.bogdanmunteanu.testapp.ws.ApiManager;
+import ro.bogdanmunteanu.testapp.ws.ServiceManager;
 
 /**
  * Dagger module definition interface
@@ -15,5 +17,6 @@ import ro.bogdanmunteanu.testapp.base.BaseNetworkPresenter;
 public interface AppComponent {
     void inject(App application);
     void inject(BaseNetworkPresenter presenter);
+    void inject(ApiManager apiManager);
 
 }

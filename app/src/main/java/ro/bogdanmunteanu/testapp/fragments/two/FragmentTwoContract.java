@@ -10,7 +10,9 @@ public interface FragmentTwoContract {
 
     interface Presenter extends BaseNetworkPresenter.BasePresenter<FragmentTwoContract.View>
     {
-        void performApiCalls();
+        void getLocations();
+
+        void getWalks();
 
 
     }

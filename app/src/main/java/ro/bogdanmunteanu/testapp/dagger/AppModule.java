@@ -49,4 +49,11 @@ public class AppModule {
                 .build();
 
     }
+
+    @Provides
+    @Singleton
+    public ServiceManager provideServiceManager(Retrofit retrofit)
+    {
+      return retrofit.create(ServiceManager.class);
+    }
 }
