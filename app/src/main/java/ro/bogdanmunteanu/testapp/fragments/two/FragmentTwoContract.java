@@ -1,10 +1,9 @@
 package ro.bogdanmunteanu.testapp.fragments.two;
 
-import ro.bogdanmunteanu.testapp.base.BaseNetworkPresenter;
+import java.util.ArrayList;
 
-/**
- * Created by Bogdan on 3/7/2018.
- */
+import ro.bogdanmunteanu.testapp.base.BaseNetworkPresenter;
+import ro.bogdanmunteanu.testapp.model.Places;
 
 public interface FragmentTwoContract {
 
@@ -14,10 +13,12 @@ public interface FragmentTwoContract {
 
         void getWalks();
 
+        void performApiCalls();
+
 
     }
 
-    interface View extends BaseNetworkPresenter.BaseView<String>
+    interface View extends BaseNetworkPresenter.BaseView<ArrayList<Places>>
     {
 
 

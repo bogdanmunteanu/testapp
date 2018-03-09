@@ -1,15 +1,9 @@
 package ro.bogdanmunteanu.testapp.helpers;
 
-import android.util.Log;
-
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
-
-/**
- * Created by Bogdan on 3/7/2018.
- */
 
 public class NumberHelper {
 

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
 import ro.bogdanmunteanu.testapp.dagger.App;
 import ro.bogdanmunteanu.testapp.model.Location;
 import ro.bogdanmunteanu.testapp.model.Walk;
-import rx.Observable;
 
 /**
  * Public interface for calling web service

@@ -1,8 +1,8 @@
 package ro.bogdanmunteanu.testapp.ws;
 
 import java.util.ArrayList;
-import rx.Observable;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import ro.bogdanmunteanu.testapp.model.Location;

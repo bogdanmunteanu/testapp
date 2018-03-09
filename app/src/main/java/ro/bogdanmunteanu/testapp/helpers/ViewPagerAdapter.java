@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import ro.bogdanmunteanu.testapp.fragments.one.FragmentOne;
 import ro.bogdanmunteanu.testapp.fragments.two.FragmentTwo;
 
-/**
- * Created by Bogdan on 3/7/2018.
- */
-
 public class ViewPagerAdapter extends FragmentPagerAdapter{
 
     private ArrayList<Fragment> fragmentList;

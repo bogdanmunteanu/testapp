@@ -3,19 +3,20 @@ package ro.bogdanmunteanu.testapp.fragments.two;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
+
 import butterknife.ButterKnife;
 import ro.bogdanmunteanu.testapp.R;
 import ro.bogdanmunteanu.testapp.helpers.FragmentChangeEvent;
+import ro.bogdanmunteanu.testapp.model.Places;
 
-/**
- * Created by Bogdan on 3/7/2018.
- */
 
 public class FragmentTwo extends Fragment implements FragmentTwoContract.View {
 
@@ -26,18 +27,20 @@ public class FragmentTwo extends Fragment implements FragmentTwoContract.View {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_two,container,false);
         ButterKnife.bind(this,rootView);
-
-        presenter.getLocations();
-        presenter.getWalks();
-
-
+        if (!presenter.isAttached()) {
+            presenter.attachPresenter(this);
+        }
+        presenter.performApiCalls();
         return rootView;
     }
 
 
     @Override
-    public void onLoadSuccess(String result) {
-
+    public void onLoadSuccess(ArrayList<Places> result) {
+        for(Places place : result)
+        {
+            Log.d("Place",place.toString());
+        }
     }
 
     @Override

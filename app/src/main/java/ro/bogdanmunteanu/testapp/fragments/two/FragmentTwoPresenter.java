@@ -3,22 +3,17 @@ package ro.bogdanmunteanu.testapp.fragments.two;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import ro.bogdanmunteanu.testapp.R;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import ro.bogdanmunteanu.testapp.base.BaseNetworkPresenter;
 import ro.bogdanmunteanu.testapp.model.Location;
+import ro.bogdanmunteanu.testapp.model.Places;
 import ro.bogdanmunteanu.testapp.model.Walk;
 import ro.bogdanmunteanu.testapp.ws.ApiManager;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func2;
-import rx.schedulers.Schedulers;
 
-
-/**
- * Created by Bogdan on 3/7/2018.
- */
 
 public class FragmentTwoPresenter extends BaseNetworkPresenter implements FragmentTwoContract.Presenter {
 
@@ -45,41 +40,10 @@ public class FragmentTwoPresenter extends BaseNetworkPresenter implements Fragme
         getApi().getLocationObservable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<ArrayList<Location>>() {
-                    @Override
-                    public void call(ArrayList<Location> locations) {
+                .subscribe(locations -> {
 
-                    }
-                }, new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
+                }, throwable -> {
 
-                    }
-                });
-
-
-        Observable.zip(getApi().getLocationObservable()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread()),
-                getApi().getWalksObservable()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread()),
-                new Func2<ArrayList<Location>, ArrayList<Walk>, Object>() {
-                    @Override
-                    public Object call(ArrayList<Location> locations, ArrayList<Walk> walks) {
-                        return null;
-                    }
-                })
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object r) {
-
-                    }
-                }, new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
-
-                    }
                 });
 
 
@@ -115,7 +79,57 @@ public class FragmentTwoPresenter extends BaseNetworkPresenter implements Fragme
         });
     }
 
+    @Override
+    public void performApiCalls() {
+        Observable.zip(getApi().getLocationObservable()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread()),
+                getApi().getWalksObservable()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread()),
+                (locations, walks) -> {
+                    ArrayList<Places> results = new ArrayList<>();
+                    //putting them in hashmaps for easy access later
+                    HashMap<Integer,Location> hashLocations =  new HashMap<>();
+                    HashMap<Integer,Walk> hashWalks = new HashMap<>();
+                    for(Location location : locations) {
+                        hashLocations.put(Integer.parseInt(location.id),location);
+                    }
+                    for(Walk walk : walks) {
+                        hashWalks.put(Integer.parseInt(walk.id),walk);
+                    }
+                    //parse call results
+                    for(Walk walk :walks)
+                    {
+                        //id odd
+                        if (Integer.parseInt(walk.id)%2!=0)
+                        {
+                            //get walk locations and map them
+                            ArrayList<Integer> places = walk.places;
+                            for(Integer place : places) {
+                                if (place%2!=0)
+                                {
+                                    results.add(new Places(hashWalks.get(Integer.parseInt(walk.id)),hashLocations.get(place)));
+                                }
+                            }
+                        }
 
+                    }
+
+                    return results;
+                })
+                .subscribe(o -> {
+                    if(isAttached()) {
+                        view.onLoadSuccess(o);
+                    }
+
+                }, throwable -> {
+                    if(isAttached()) {
+                        view.onLoadError(throwable.getLocalizedMessage());
+                    }
+                });
+
+    }
 }
 
 

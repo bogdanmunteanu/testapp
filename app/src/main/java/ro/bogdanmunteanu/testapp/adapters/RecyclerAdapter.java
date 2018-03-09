@@ -25,9 +25,6 @@ import ro.bogdanmunteanu.testapp.helpers.FragmentChangeEvent;
 import ro.bogdanmunteanu.testapp.helpers.NumberHelper;
 import ro.bogdanmunteanu.testapp.model.Element;
 
-/**
- * Created by Bogdan on 3/7/2018.
- */
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.AdapterHolder>{
 

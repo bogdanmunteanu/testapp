@@ -12,9 +12,9 @@ public class Walk {
     public String title;
 
     @SerializedName("places")
-    ArrayList<String> places;
+    public ArrayList<Integer> places;
 
-    public Walk(String id, String title, ArrayList<String> places) {
+    public Walk(String id, String title, ArrayList<Integer> places) {
         this.id = id;
         this.title = title;
         this.places = places;
